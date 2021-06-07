@@ -6,81 +6,50 @@
 #    By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 15:56:38 by jumoreau          #+#    #+#              #
-#    Updated: 2021/06/03 14:45:21 by lotus            ###   ########.fr        #
+#    Updated: 2021/06/07 14:44:53 by jumoreau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #-----------------------------MAIN VARIABLES-----------------------------------#
-MAIN 		=mymain.c
-NAME		=LibFt
-OUT 		=mainout.o
-LIBRARY 	=libft.h
-FUNCTIONS 	=\
-			ft_strlen.c\
-			ft_isalpha.c\
-			ft_isdigit.c\
-			ft_isalnum.c\
-			ft_isascii.c\
-			ft_isprint.c\
-			ft_tolower.c\
-			ft_toupper.c\
-			ft_atoi.c\
-			ft_strncmp.c\
-			ft_strnstr.c\
-			ft_strchr.c\
-			ft_memset.c\
-			ft_bzero.c\
-			ft_memcpy.c\
-			ft_memccpy.c\
-			ft_memchr.c\
-			ft_memmove.c\
-			ft_memcmp.c\
-			ft_strrchr.c\
-			ft_strlcpy.c\
-			ft_strdup.c\
-			ft_calloc.c\
-			ft_strlcat.c\
-			ft_substr.c\
-			ft_strjoin.c\
-			ft_strtrim.c\
-			ft_split.c\
-			ft_itoa.c\
-			ft_strmapi.c\
-			#ft_putchar_fd.c\
-			#ft_putstr_fd.c\
-			#ft_putendl_fd.c\
-			#ft_putnbr_fd.c\
-#-----------------------------TEST VARIABLES-----------------------------------#
-DEV			=devmain.c
-DEVOUT		=devout.o
-#----------------------------MANDATORY COMMANDS--------------------------------#
-all: $(NAME)
-	@./$(OUT)
 
-$(NAME):
-	@gcc -Wall -Wextra -Werror $(MAIN) $(FUNCTIONS) -o $(OUT)
+SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c   ft_split.c \
+					ft_strlcat.c ft_strncmp.c ft_substr.c ft_atoi.c ft_isalpha.c \
+					ft_itoa.c ft_memcpy.c   ft_strchr.c  ft_strlcpy.c \
+					ft_strnstr.c ft_tolower.c ft_bzero.c   ft_isascii.c ft_memccpy.c \
+					ft_memmove.c   ft_strdup.c  ft_strlen.c  ft_strrchr.c \
+					ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
+					ft_strjoin.c ft_strmapi.c ft_strtrim.c \
+					#ft_putstr_fd.c
+					#ft_putchar_fd.c
+					#ft_putnbr_fd.c
+					#ft_putendl_fd.c
+OBJS			= $(SRCS:.c=.o)
+
+#BONUS			=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
+					ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
+					ft_lstmap.c ft_lstnew.c ft_lstsize.c
+BONUS_OBJS		= $(BONUS:.c=.o)
+
+CC				= gcc
+RM				= rm -f
+CFLAGS			= -Wall -Wextra -Werror -I.
+
+NAME			= libft.a
+
+all:			$(NAME)
+
+$(NAME):		$(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
 clean:
-	@/bin/rm -f *.o
+				$(RM) $(OBJS) $(BONUS_OBJS)
 
-fclean: clean
-	@/bin/rm -f $(NAME)
+fclean:			clean
+				$(RM) $(NAME)
 
-re: allclean all
-#-----------------------------CUSTOM COMMANDS----------------------------------#
-diff: $(NAME) dev
-	@echo ./$(OUT) | bash > MAINOUT
-	@echo ./$(DEVOUT) | bash > DEVOUT
-	@diff MAINOUT DEVOUT
+re:				fclean $(NAME)
 
-allclean: fclean
-		@/bin/rm -f MAINOUT*
-		@/bin/rm -f DEVOUT*
-		@/bin/rm -f *.diff
+bonus:			$(OBJS) $(BONUS_OBJS)
+				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
-dev:
-	@gcc -Wall -Wextra -Werror $(DEV) -o $(DEVOUT)
-	@./$(DEVOUT)
-
-compare: $(NAME) dev
-	@./$(OUT)
+.PHONY:			all clean fclean re bonus
