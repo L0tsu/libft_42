@@ -1,0 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lotus <lotus@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/31 12:13:22 by lotus             #+#    #+#             */
+/*   Updated: 2021/06/03 14:43:49 by lotus            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+static int	numsize(int x)
+{
+	int	d;
+
+	d = 0;
+	if (x < 0)
+	{
+		x = -x;
+		d++;
+	}
+	while (x > 10)
+	{
+		x = x / 10;
+		d++;
+	}
+	return (d);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*tab;
+	int		d;
+	int		t;
+
+	t = 0;
+	d = numsize(n);
+	tab = (char *)malloc(sizeof(char) * d + 1);
+	if (tab == NULL)
+		return (NULL);
+	if (n == -2147483648)
+		return (tab = "-2147483648");
+	if (n < 0)
+	{
+		n = -n;
+		tab[0] = '-';
+	}
+	while (n != 0)
+	{
+		tab[d] = (n % 10) + 48;
+		n = (n - n % 10) / 10;
+		d--;
+	}
+	return (tab);
+}
