@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:22:48 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/05/14 10:26:29 by jumoreau         ###   ########.fr       */
+/*   Updated: 2021/06/10 16:23:04 by jumoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,16 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	const char	*ptr;
 
 	ptr = src;
-	if (size > 1)
+	if (size < 1)
+		return (ft_strlen(src));
+	while (size > 1 && *ptr)
 	{
-		ft_bzero(dst, size);
-		while (size - 1 > 0)
-		{
-			*dst = *ptr;
-			size--;
-			dst++;
-			ptr++;
-		}
-		*dst = '\0';
-		dst -= size - 1;
+		*dst = *ptr;
+		size--;
+		dst++;
+		ptr++;
 	}
+	*dst = '\0';
+	dst = &dst[0];
 	return (ft_strlen(src));
 }
