@@ -6,7 +6,7 @@
 #    By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 15:56:38 by jumoreau          #+#    #+#              #
-#    Updated: 2021/06/07 14:44:53 by jumoreau         ###   ########.fr        #
+#    Updated: 2021/06/10 14:08:44 by lotus            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,11 @@ OBJS			= $(SRCS:.c=.o)
 					ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
 					ft_lstmap.c ft_lstnew.c ft_lstsize.c
 BONUS_OBJS		= $(BONUS:.c=.o)
-
 CC				= gcc
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror -I.
-
 NAME			= libft.a
+OUT				= main.out
 
 all:			$(NAME)
 
@@ -42,13 +41,16 @@ $(NAME):		$(OBJS)
 				ar rcs $(NAME) $(OBJS)
 
 clean:
-				$(RM) $(OBJS) $(BONUS_OBJS)
+				$(RM) $(OBJS) $(BONUS_OBJS) $(OUT)
 
 fclean:			clean
 				$(RM) $(NAME)
 
 re:				fclean $(NAME)
 
+out:
+	@$(CC) -o $(OUT) mymain.c $(SRCS)
+	@./$(OUT)
 bonus:			$(OBJS) $(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 

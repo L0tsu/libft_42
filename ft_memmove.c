@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:21:17 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/07 15:13:30 by jumoreau         ###   ########.fr       */
+/*   Updated: 2021/06/10 15:10:45 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 char	*ft_memmove(void *to, const void *from, size_t size)
 {
-	unsigned char	*ptr;
+	char			*ptr;
 	const char		*ptr1;
-	size_t				i;
 
-	i = 0;
 	ptr = to;
 	ptr1 = from;
-	while (i != size)
-	{
-		ptr[i] = ptr1[i];
-		i++;
-	}
+	if (ptr < ptr1)
+		while (size-- > 0)
+			*ptr++ = *ptr1++;
+	else
+		while (size-- > 0)
+			ptr[size] = ptr1[size];
 	return (to);
 }

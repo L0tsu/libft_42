@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:18:20 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/05/14 10:37:38 by jumoreau         ###   ########.fr       */
+/*   Updated: 2021/06/09 18:33:27 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ char	*ft_strchr(char *str, int c)
 			return (str);
 		str++;
 	}
+	if (*str == c)
+		return (&str[0]);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 13:16:16 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/07 13:01:43 by jumoreau         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:09:54 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
 	char str[] = "hunter x hunter"; //size 16
 	char str1[] = "gullible"; //size 9
 	char str2[] = "9876543210"; //size 10
-	char fuckstrlcat[] = "hallo";
+	char fuckstrlcat[20] = "hallo";
 	void *ptr = str;
 	void *ptr1 = str1;
 
@@ -60,7 +60,7 @@ int main()
 	printf("|memmove - %s\n", ft_memmove(ptr1+5, ptr, 0));
 	printf("|memcmp  - %d\n", ft_memcmp(str, str1, 0));
 	printf("|strlcpy - [%lu] %s\n", ft_strlcpy(str2, str, 5), str2);
-	printf("|strlcat - [%lu] %s\n", ft_strlcat(fuckstrlcat, fuckstrlcat, 5), fuckstrlcat);
+	printf("|strlcat - [%lu] %s\n", ft_strlcat(fuckstrlcat, str, 77), fuckstrlcat);
 	printf("|strdup  - [%lu] %s\n", ft_strlen(str),ft_strdup(str));
 	char *cal = (ft_calloc(5, 5));
 	cal = "hi";
