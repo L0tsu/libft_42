@@ -6,7 +6,7 @@
 #    By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 15:56:38 by jumoreau          #+#    #+#              #
-#    Updated: 2021/06/10 14:08:44 by lotus            ###   ########.fr        #
+#    Updated: 2021/06/14 08:54:01 by lotus            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,3 +55,9 @@ bonus:			$(OBJS) $(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 .PHONY:			all clean fclean re bonus
+#######################################################
+
+git:
+	git add .
+	git commit -m "new"
+	git push origin master
