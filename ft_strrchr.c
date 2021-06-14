@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:18:42 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/05/14 10:37:53 by jumoreau         ###   ########.fr       */
+/*   Updated: 2021/06/14 08:51:11 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 char	*ft_strrchr(char *str, int c)
 {
-	while (*str)
-		str++;
+	size_t	i;
+
+	i = ft_strlen(str);
+	str += i;
+	if (*str == c)
+		return (str);
 	str--;
-	while (*str)
+	while (*str && i-- != 0)
 	{
 		if (*str == c)
 			return (str);

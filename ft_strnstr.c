@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:17:50 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/05/14 19:01:55 by lotus            ###   ########.fr       */
+/*   Updated: 2021/06/14 08:39:16 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ char	*ft_strnstr(const char *str, const char *str1, size_t n)
 
 	if (!*str1)
 		return ((char *)str);
-	while (*str)
+	while (*str && n > 0)
 	{
 		if (*str1 == *str && n > 0)
 		{
 			ptr = str;
 			break ;
 		}
+		n--;
 		str++;
 	}
-	while (*str1 == *str && n > 0)
+	while (*str1 == *str && n-- > 0)
 	{
 		str++;
 		str1++;
-		n--;
 	}
 	if (!*str1)
 		return ((char *)ptr);
