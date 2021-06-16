@@ -6,36 +6,34 @@
 /*   By: lotus <lotus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 09:15:12 by lotus             #+#    #+#             */
-/*   Updated: 2021/06/03 13:56:20 by jumoreau         ###   ########.fr       */
+/*   Updated: 2021/06/14 09:55:05 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ftsplitl(char const *s, char c, int i)
+static int	ftsplitl(char const *s, char c)
 {
 	int	lenght;
-	int	tmp;
 
-	tmp = 0;
 	lenght = 0;
-	if (tmp == i)
+	while (*s == c && *s)
+		s++;
+	while (*s != c && *s)
 	{
-		while (*s == c && *s)
-			s++;
-		while (*s != c && *s)
-		{
-			s++;
-			lenght++;
-		}
-	}
-	else
-	{
-		while (*s != c)
-			s++;
-		tmp++;
+		s++;
+		lenght++;
 	}
 	return (lenght + 1);
+}
+
+static int	onlyccheck(char const *s, char c)
+{
+	while (*s == c)
+		s++;
+	if (!*s)
+		return (0);
+	return (1);
 }
 
 static int	splitcount(char const *s, char c)
@@ -88,9 +86,11 @@ char	**ft_split(char const *s, char c)
 	str = (char **)malloc(sc * sizeof(char *));
 	if (str == NULL)
 		return (NULL);
+	if (onlyccheck(s, c) == 0)
+		return (str);
 	while (i < sc - 1)
 	{
-		*(str + i) = (char *)malloc(ftsplitl(s, c, i) * sizeof(char *));
+		*(str + i) = (char *)malloc(ftsplitl(s, c) * sizeof(char *));
 		ft_strcpy(str[i], s, c);
 		while (*s == c && *s)
 			s++;
