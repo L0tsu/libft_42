@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 13:17:52 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/14 09:57:51 by lotus            ###   ########.fr       */
+/*   Updated: 2021/06/17 12:50:00 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ptr = s;
 	i = 0;
 	if (len <= 1 || !ptr[start])
+	{
+		*sub = '\0';
 		return (sub);
+	}
 	while (ptr[start] != '\0' && i < len)
 	{
 		sub[i] = ptr[start];

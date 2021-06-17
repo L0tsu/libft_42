@@ -6,12 +6,12 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 13:16:16 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/14 23:51:10 by lotus            ###   ########.fr       */
+/*   Updated: 2021/06/17 13:26:12 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include <stdio.h>
 
 // char	strmapitest(unsigned int i, char c)
 // {
@@ -69,7 +69,7 @@ int main()
 //
 // 	printf("------------------------------PART 2------------------------------\n");
 //
-	char s1[] = ".x.allo.x.";
+	char s1[] = "";
 // 	char *s2 = ft_substr(s1, 2, 10);
 // 	printf("|substr  - %s [%lu]\n", s2, ft_strlen(s2));
 // //
@@ -88,7 +88,7 @@ int main()
 // 	}
 // 	free(split1);
 // //
-	printf("|ft_itoa - %s\n", ft_itoa(453465));
+	// printf("|ft_itoa - %s\n", ft_itoa(453465));
 
 	// printf("|ft_strmapi - %s\n", ft_strmapi(s1);
 }

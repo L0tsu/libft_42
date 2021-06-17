@@ -6,17 +6,14 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 13:16:35 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/14 10:37:56 by lotus            ###   ########.fr       */
+/*   Updated: 2021/06/17 14:26:15 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
-# include <stdio.h>
 # include <unistd.h>
-# include <stddef.h>
-# include <stdbool.h>
 //----------------------------PART 1--------------------------------------- DONE
 size_t		ft_strlen(const char *str);
 int			ft_isalpha(int c);
@@ -50,5 +47,9 @@ char		*ft_strtrim(char const *s1, char const *set);
 char		**ft_split(char const *s, char c);
 char		*ft_itoa(int n);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void		ft_putchar_fd(char c, int fd);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putnbr_fd(int n, int fd);
+void		ft_putendl_fd(char *s, int fd);
 
 #endif

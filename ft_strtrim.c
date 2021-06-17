@@ -6,45 +6,36 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 14:46:01 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/16 14:14:19 by lotus            ###   ########.fr       */
+/*   Updated: 2021/06/17 13:20:53 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	trim_tail(const char *s1, const char *set, int ptr)
+static int	itrim(char const s1, const char *set)
 {
-	int	i;
-
-	i = 0;
-	while (s1[i + ptr] != *set && s1[i + ptr])
-		i++;
-	return (i);
-}
-
-static int	trim_head(const char *s1, const char *set)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i])
+	while (*set)
 	{
-		while (s1[i] == *set)
-			i++;
+		if (s1 == *set)
+			return (1);
 		set++;
-		if (!*set)
-			set = &set[0];
 	}
-	return (i);
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, const char *set)
 {
-	int	i;
-	int	j;
+	size_t		i;
+	size_t		j;
 
-	i = trim_head(s1, set);
-	j = trim_tail(s1, set, i);
-	printf("%d - %d", i ,j);
+	i = 0;
+	j = ft_strlen(s1) - 1;
+	while (itrim(s1[i], set) == 1)
+		i++;
+	while (itrim(s1[j], set) == 1)
+		j--;
+	j -= i - 1;
+	if (i == ft_strlen(s1))
+		return (ft_substr(s1, 0, 0));
 	return (ft_substr(s1, i, j));
 }
