@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 13:16:35 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/17 14:26:15 by lotus            ###   ########.fr       */
+/*   Updated: 2021/06/17 21:56:48 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,13 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putendl_fd(char *s, int fd);
+//----------------------------BONUS-------------------------------------------//
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}t_list;
 
+t_list		*ft_lstnew(void *content);
+void		ft_lstadd_front(t_list **lst, t_list *new);
 #endif

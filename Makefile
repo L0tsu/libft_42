@@ -6,7 +6,7 @@
 #    By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 15:56:38 by jumoreau          #+#    #+#              #
-#    Updated: 2021/06/17 13:48:36 by lotus            ###   ########.fr        #
+#    Updated: 2021/06/17 21:55:57 by lotus            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c   ft_split.c \
 					ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_putendl_fd.c
 OBJS			= $(SRCS:.c=.o)
 
-#BONUS			=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
+BONUS			=	ft_lstnew.c\
+					ft_lstadd_front.c\
+					# ft_lstadd_back.c ft_lstclear.c \
 					ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
 					ft_lstmap.c ft_lstnew.c ft_lstsize.c
 BONUS_OBJS		= $(BONUS:.c=.o)
@@ -46,7 +48,7 @@ fclean:			clean
 re:				fclean $(NAME)
 
 out:
-	@$(CC) $(CFLAGS) -o $(OUT) mymain.c $(SRCS)
+	$(CC) $(CFLAGS) -o $(OUT) mymain.c $(SRCS)
 	@./$(OUT)
 bonus:			$(OBJS) $(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
