@@ -6,7 +6,7 @@
 #    By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 15:56:38 by jumoreau          #+#    #+#              #
-#    Updated: 2021/06/17 21:55:57 by lotus            ###   ########.fr        #
+#    Updated: 2021/06/21 12:55:41 by lotus            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,13 @@ OBJS			= $(SRCS:.c=.o)
 
 BONUS			=	ft_lstnew.c\
 					ft_lstadd_front.c\
-					# ft_lstadd_back.c ft_lstclear.c \
-					ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
-					ft_lstmap.c ft_lstnew.c ft_lstsize.c
+					ft_lstadd_back.c\
+					ft_lstsize.c\
+					ft_lstlast.c\
+					ft_lstdelone.c\
+					ft_lstclear.c\
+					ft_lstiter.c\
+					ft_lstmap.c
 BONUS_OBJS		= $(BONUS:.c=.o)
 CC				= gcc
 RM				= rm -f
