@@ -6,23 +6,37 @@
 /*   By: lotus <lotus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 12:56:38 by lotus             #+#    #+#             */
-/*   Updated: 2021/06/21 13:26:38 by lotus            ###   ########.fr       */
+/*   Updated: 2021/06/26 13:14:16 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static void	*lst_alloc_fails(t_list *head, void (*del)(void *))
+{
+	if (head && del)
+		ft_lstclear(&head, del);
+	return (NULL);
+}
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	lst = f(lst);
+	t_list	*head;
+	t_list	*curr;
+
+	if (!lst || !f || !del)
+		return (NULL);
+	head = ft_lstnew(f(lst->content));
+	if (!head)
+		return (NULL);
+	curr = head;
 	while (lst->next)
 	{
-		lst++;
-		if (!lst)
-		{
-			del(lst->content);
-			lst = lst->next;
-		}
+		lst = lst->next;
+		curr->next = ft_lstnew(f(lst->content));
+		if (!curr->next)
+			return (lst_alloc_fails(head, del));
+		curr = curr->next;
 	}
-	return (&lst[0]);
+	return (head);
 }
