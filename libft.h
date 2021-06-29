@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 13:16:35 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/21 13:05:36 by lotus            ###   ########.fr       */
+/*   Updated: 2021/06/29 15:40:08 by jumoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int			ft_isdigit(int c);
 int			ft_isalnum(int c);
 int			ft_isascii(int c);
 int			ft_isprint(int c);
-char		ft_toupper(char c);
-char		ft_tolower(char c);
+int			ft_toupper(int c);
+int			ft_tolower(int c);
 int			ft_atoi(const char *str);
 int			ft_strncmp(const char *str, const char *str1, size_t n);
 char		*ft_strnstr(const char *str, const char *str1, size_t n);
@@ -30,12 +30,12 @@ char		*ft_strchr(char *str, int c);
 char		*ft_strrchr(char *str, int c);
 char		*ft_memset(void *src, int value, size_t size);
 void		ft_bzero(void *str, size_t size);
-char		*ft_memcpy(void *dst, const void *src, size_t num);
-char		*ft_memccpy(void *restrict dest, void *restrict src,
+void		*ft_memcpy(void *dst, const void *src, size_t num);
+void		*ft_memccpy(void *restrict dest, void *restrict src,
 				int c, size_t num);
-char		*ft_memchr(void *str, int value, size_t num);
+void		*ft_memchr(void *str, int value, size_t num);
 char		*ft_memmove(void *to, const void *from, size_t size);
-int			ft_memcmp(void *ptr, void *ptr1, size_t n);
+int			ft_memcmp(const void *ptr, const void *ptr1, size_t n);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlcat(char *dest, const char *src, size_t size);
 char		*ft_strdup(const char *s);

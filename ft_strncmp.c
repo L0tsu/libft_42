@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:16:48 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/10 16:41:31 by jumoreau         ###   ########.fr       */
+/*   Updated: 2021/06/29 14:39:20 by jumoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_strncmp(const char *str, const char *str1, size_t n)
 {
 	if (n > 0)
 	{
-		while (*str == *str1 && n)
+		while (*str == *str1 && n && *str && *str1)
 		{
 			str++;
 			str1++;
