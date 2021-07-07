@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 13:16:35 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/29 15:40:08 by jumoreau         ###   ########.fr       */
+/*   Updated: 2021/07/07 16:40:41 by jumoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 //----------------------------PART 1--------------------------------------- DONE
 size_t		ft_strlen(const char *str);
 int			ft_isalpha(int c);

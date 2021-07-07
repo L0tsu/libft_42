@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:17:50 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/29 16:22:25 by jumoreau         ###   ########.fr       */
+/*   Updated: 2021/07/07 16:56:11 by jumoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strnstr(const char *str, const char *str1, size_t n)
 		n--;
 		str++;
 	}
-	while (*str1 == *str && n > 0)
+	while (*str1 == *str && n > 0 && *str1)
 	{
 		str++;
 		str1++;

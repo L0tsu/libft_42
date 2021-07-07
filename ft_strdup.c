@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 17:57:53 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/03 14:43:09 by lotus            ###   ########.fr       */
+/*   Updated: 2021/07/07 17:31:06 by jumoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s)
 	char		*ptr;
 	const char	*ptr2;
 
-	str = (char *)malloc(sizeof(char) * ft_strlen(s));
+	str = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
 	ptr = str;
 	ptr2 = s;
 	if (str == NULL)
@@ -29,5 +29,6 @@ char	*ft_strdup(const char *s)
 		ptr++;
 		ptr2++;
 	}
+	*ptr = '\0';
 	return (str);
 }
