@@ -6,7 +6,7 @@
 #    By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 15:56:38 by jumoreau          #+#    #+#              #
-#    Updated: 2021/06/21 12:55:41 by lotus            ###   ########.fr        #
+#    Updated: 2021/07/07 16:00:43 by jumoreau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ BONUS_OBJS		= $(BONUS:.c=.o)
 CC				= gcc
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror -I.
-NAME			= libft.a
+NAME			=	libft.a
 OUT				= main.out
 
 all:			$(NAME)
