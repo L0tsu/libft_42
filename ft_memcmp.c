@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:22:31 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/06/29 16:16:51 by jumoreau         ###   ########.fr       */
+/*   Updated: 2021/07/06 20:41:53 by lotus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_memcmp(const void *ptr, const void *ptr1, size_t n)
 {
 	unsigned char	*str;
 	unsigned char	*str1;
-	size_t	x;
+	size_t			x;
 
 	str = (unsigned char *) ptr;
 	str1 = (unsigned char *) ptr1;
@@ -28,7 +28,7 @@ int	ft_memcmp(const void *ptr, const void *ptr1, size_t n)
 		x = n;
 	if (x < 1)
 		return (0);
-	while ((*str == *str1) && (x > 0) && (*str != 0|| *str1 != 0))
+	while ((*str == *str1) && (x > 0) && (*str != 0 || *str1 != 0))
 	{
 		str++;
 		str1++;
