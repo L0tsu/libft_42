@@ -6,7 +6,7 @@
 /*   By: lotus <lotus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 12:13:22 by lotus             #+#    #+#             */
-/*   Updated: 2021/06/21 10:06:40 by lotus            ###   ########.fr       */
+/*   Updated: 2021/07/07 18:11:11 by jumoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*ft_itoa(int n)
 
 	t = 0;
 	d = numsize(n);
-	tab = (char *)malloc(sizeof(char) * d + 1);
+	tab = (char *)malloc(sizeof(char) * d + 2);
 	if (tab == NULL)
 		return (NULL);
 	if (n == -2147483648)

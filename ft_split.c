@@ -6,7 +6,7 @@
 /*   By: lotus <lotus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 09:15:12 by lotus             #+#    #+#             */
-/*   Updated: 2021/06/14 09:55:05 by lotus            ###   ########.fr       */
+/*   Updated: 2021/07/07 17:58:47 by jumoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int	splitcount(char const *s, char c)
 	return (i);
 }
 
-static char	*ft_strcpy(char *tab, const char *s, char c)
+static char	*ft_splitcpy(char *tab, const char *s, char c)
 {
 	while (*s == c && *s)
 		s++;
@@ -84,14 +84,16 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	sc = splitcount(s, c) + 2;
 	str = (char **)malloc(sc * sizeof(char *));
-	if (str == NULL)
+	if (!str)
 		return (NULL);
 	if (onlyccheck(s, c) == 0)
 		return (str);
 	while (i < sc - 1)
 	{
 		*(str + i) = (char *)malloc(ftsplitl(s, c) * sizeof(char *));
-		ft_strcpy(str[i], s, c);
+		if (!*str)
+			return (NULL);
+		ft_splitcpy(str[i], s, c);
 		while (*s == c && *s)
 			s++;
 		while (*s != c && *s)

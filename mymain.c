@@ -6,7 +6,7 @@
 /*   By: jumoreau <jumoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 13:16:16 by jumoreau          #+#    #+#             */
-/*   Updated: 2021/07/07 17:14:31 by jumoreau         ###   ########.fr       */
+/*   Updated: 2021/07/07 18:09:49 by jumoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main()
 	// printf("|tolower - ");
 	// putchar(ft_tolower(c1));
 	// printf("\n");
-	printf("|atoi    - %d\n", ft_atoi("-99999999999999999999999999"));
+	// printf("|atoi    - %d\n", ft_atoi("-99999999999999999999999999"));
 	// printf("|strncmp - %d\n", ft_strncmp(str, str1, 10));
 	// printf("|strnstr - %s\n", ft_strnstr(str2, str2, 2));
 	// printf("|strchr  - %s\n", ft_strchr(str, 't'));
@@ -79,14 +79,16 @@ int main()
 //
 // 	printf("|strtrim - %s\n", ft_strtrim(s1, ".x"));
 //
-// 	char **split1;
-// 	int i = 0;
-// 	split1 = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
-// 	while(split1[i]){
-// 		printf("|ft_split[%d] %s\n", i, split1[i]);
-// 		i++;
-// 	}
-// 	free(split1);
+	char **split1;
+	char	**expected = (char*[6]){"split", "this", "for", "me", "!", NULL};
+	int i = 0;
+	split1 = ft_split("      split       this for   me  !       ", ' ');
+	while(i != 6){
+		printf("|ft_split[%d] %s\n", i, split1[i]);
+		printf("|expected[%d] %s\n", i, expected[i]);
+		i++;
+	}
+	free(split1);
 // //
 // 	printf("|ft_itoa - %s\n", ft_itoa(453465));
 // 	printf("|--------------------BONUS--------------------|\n\n");
